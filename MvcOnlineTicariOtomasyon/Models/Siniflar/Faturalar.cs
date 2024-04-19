@@ -20,13 +20,12 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         [StringLength(6)]
         public string FaturaSıraNo { get; set; }
 
-        [Column(TypeName = "Varchar")]
-        [StringLength(30)]
         public DateTime Tarih { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(100)]
-        public string VergiDairesi { get; set; }   
+        public string VergiDairesi { get; set; } 
+        
         public DateTime Saat { get; set; }
 
         [Column(TypeName = "Varchar")]
