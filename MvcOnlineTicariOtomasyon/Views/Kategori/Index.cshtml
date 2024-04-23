@@ -1,0 +1,44 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+    int count = 0;
+}
+
+    <div class="card-body">
+        <div class="table-responsive">
+            @*<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">*@
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>    
+                        <th>ID</th>
+                        <th>Kategori Adı</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kategori Adı</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+
+                        <tr>
+                            <td>@count</td>
+                            <td>@item.KategoriAd</td>
+                            <td><a href="/Kategori/KategoriSil/@item.KategoriID" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="/Kategori/KategoriGetir/@item.KategoriID" class="btn btn-outline-success">Güncelle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a href="/Kategori/KategoriEkle/" class="btn btn-primary">Yeni Kategori Ekle</a>
+        </div>
+    </div>
