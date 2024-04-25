@@ -1,0 +1,70 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<br />
+<div class="card-body">
+    <div class="table-responsive">
+        @*<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">*@
+        <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ürün</th>
+                    <th>Marka</th>
+                    <th>Stok</th>
+                    <th>Alış Fiyatı</th>
+                    <th>Satış Fiyatuı</th>
+                    <th>Kategori</th>
+                    <th>Görsel</th>
+                    <th>Durum</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Ürün</th>
+                    <th>Marka</th>
+                    <th>Stok</th>
+                    <th>Alış Fiyatı</th>
+                    <th>Satış Fiyatuı</th>
+                    <th>Kategori</th>
+                    <th>Görsel</th>
+                    <th>Durum</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    count++;
+
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.UrunAd</td>
+                        <td>@item.Marka</td>
+                        <td>@item.Stok</td>
+                        <td>@item.AlisFiyat</td>
+                        <td>@item.SatisFiyat</td>
+                        <td>@item.Kategori.KategoriAd</td>
+                        <td>@item.UrunGorsel</td>
+                        <td>@item.Durum</td>
+                        <td><a href="/Urun/UrunSil/@item.UrunID" class="btn btn-outline-danger">Sil</a></td>
+                        <td><a href="/Urun/UrunGetir/@item.UrunID" class="btn btn-outline-success">Güncelle</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a href="/Urun/UrunEkle/" class="btn btn-primary">Yeni Ürün Ekle</a>
+    </div>
+</div>
+
+
