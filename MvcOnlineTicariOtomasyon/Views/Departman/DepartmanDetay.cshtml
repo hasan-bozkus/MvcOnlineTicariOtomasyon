@@ -1,0 +1,57 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Personel>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+    int count = 0;
+}
+
+<br />
+<h2>Departman Detay Sayası</h2>
+
+<br />
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman Adı: @ViewBag.departman</li>
+</ol>
+
+<div class="card-body">
+    <div class="table-responsive">
+        @*<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">*@
+        <table class="table table-hover" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Görsel</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Görsel</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    count++;
+
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.PersonelAd</td>
+                        <td>@item.PersonelSoyad</td>
+                        <td>@item.PersonelGorsel</td>
+                        <td><a href="/Departman/DepartmanPersonelSatis/@item.PersonelID" class="btn btn-danger">Satışlar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a href="/Departman/DepartmanEkle/" class="btn btn-primary">Yeni Departman Ekle</a>
+    </div>
+</div>
+
