@@ -1,0 +1,55 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card-body">
+    <div class="table-responsive">
+        @*<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">*@
+        <table class="table table-striped" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ad Soyad</th>
+                    <th>Şehir</th>
+                    <th>E-Posta</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                    <th>Detay</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Kategori Adı</th>
+                    <th>Şehir</th>
+                    <th>E-Posta</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                    <th>Detay</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    count++;
+
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.CariAd @item.CariSoyad</td>
+                        <td>@item.CariSehir</td>
+                        <td>@item.CariMail</td>
+                        <td><a href="/Cari/CariSil/@item.CariId" class="btn btn-outline-danger">Sil</a></td>
+                        <td><a href="/Cari/CariGetir/@item.CariId" class="btn btn-outline-warning">Güncelle</a></td>
+                        <td><a href="/Cari/MusteriSatis/@item.CariId" class="btn btn-outline-success">Satış Geçmişi</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a href="/Cari/CariEkle/" class="btn btn-primary">Yeni Cari Ekle</a>
+    </div>
+</div>
+

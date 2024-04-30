@@ -1,15 +1,17 @@
 ﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.SatisHareket>
 @{
-    ViewBag.Title = "DepartmanPersonelSatis";
+    ViewBag.Title = "MusteriSatis";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
     int count = 0;
 }
 
+<br />
+<h2>Müşteri Satış Sayfası</h2>
 
 <br />
 
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Cari Adı: @ViewBag.departmanPersonel</li>
+    <li class="breadcrumb-item active">Departman Adı: @ViewBag.cari</li>
 </ol>
 
 <div class="card-body">
@@ -20,7 +22,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Ürün</th>
-                    <th>Cari</th>
+                    <th>Personel</th>
                     <th>Fiyat</th>
                     <th>Adet</th>
                     <th>Toplam</th>
@@ -32,7 +34,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Ürün</th>
-                    <th>Cari</th>
+                    <th>Personel</th>
                     <th>Fiyat</th>
                     <th>Adet</th>
                     <th>Toplam</th>
@@ -48,7 +50,7 @@
                     <tr>
                         <td>@count</td>
                         <td>@item.Urun.UrunAd</td>
-                        <td>@item.Cariler.CariAd @item.Cariler.CariSoyad</td>
+                        <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
                         <td>@item.Fiyat</td>
                         <td>@item.Adet</td>
                         <td>@item.ToplamTutar</td>
