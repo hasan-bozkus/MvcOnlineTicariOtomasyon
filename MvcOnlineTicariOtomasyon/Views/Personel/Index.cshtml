@@ -1,0 +1,55 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int count = 0;
+}
+
+<br />
+
+<div class="card-body">
+    <div class="table-responsive">
+        @*<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">*@
+        <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Personel Ad Soyad</th>
+                    <th>Görsel</th>
+                    <th>Departman ID</th>
+                    <th>Güncelle</th>
+                    <th>Satışlar</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Personel Ad Soyad</th>
+                    <th>Görsel</th>
+                    <th>Departman</th>
+                    <th>Güncelle</th>
+                    <th>Satışlar</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    count++;
+
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.PersonelAd @item.PersonelSoyad</td>
+                        <td>@item.PersonelGorsel</td>
+                        <td>@item.Departman.DepartmanAd</td>
+                        <td><a href="/Personel/PersonelGetir/@item.PersonelID" class="btn btn-outline-warning">Güncelle</a></td>
+                        <td><a href="/Departman/DepartmanPersonelSatis/@item.PersonelID" class="btn btn-outline-success">Detayı Gör</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a href="/Personel/PersonelEkle/" class="btn btn-primary">Yeni Personel Ekle</a>
+    </div>
+</div>
+
+
