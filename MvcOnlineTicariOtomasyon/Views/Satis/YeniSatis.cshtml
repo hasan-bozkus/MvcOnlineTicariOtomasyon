@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Satış Sayfası</h2>
+
+<div class="card-body">
+    <div class="form-responsive">
+        <form class="form-group" method="post">
+            @Html.LabelFor(x => x.Urun)
+            @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.urun, "Lütefen Ürün Seçin", new { @class = "form-control", placeholder = "Ürün Girin" })
+            <br />
+            @Html.Label("Cari")
+            @Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.cari, "Lütefen Cari Seçin", new { @class = "form-control", placeholder = "Cari Girin" })
+            <br />
+            @Html.LabelFor(x=> x.Personel)
+            @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.personel, "Lütefen Personel Seçin", new { @class = "form-control", placeholder = "Personel Girin" })
+            <br />
+            @Html.LabelFor(x => x.Adet)
+            @Html.TextBoxFor(x => x.Adet, new { @class = "form-control", placeholder = "Adeti Girin" })
+            <br />
+            @Html.LabelFor(x => x.Fiyat)
+            @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", placeholder = "Fiyatı Girin" })
+            <br />
+            @Html.LabelFor(x => x.ToplamTutar)
+            @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control", placeholder = "Toplam Fiyatını Girin" })
+            <br />
+            <br />
+            <button class="btn btn-info">Satış Yap</button>
+        </form>
+    </div>
+</div>
+

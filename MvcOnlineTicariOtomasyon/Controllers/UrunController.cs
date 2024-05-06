@@ -105,5 +105,11 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult UrunListesi()
+        {
+            var values = c.Uruns.ToList();
+            return View(values);
+        }
     }
 }
