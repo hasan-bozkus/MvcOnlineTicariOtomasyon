@@ -91,22 +91,51 @@
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
 
     <script>
-
         $(document).ready(function () {
-
             var table = $('#example').DataTable({
-
                 lengthChange: false,
-
-                buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis']
-
+                buttons: [
+                    { extend: 'copy', text: 'Tablo Kopyala' },
+                    { extend: 'excel', text: 'Excel İndir' },
+                    { extend: 'csv', text: 'CSV İndir' },
+                    { extend: 'pdf', text: 'PDF İndir' },
+                    { extend: 'colvis', text: 'Sütun Görünürlüğü' }
+                ],
+                language: {
+                    "emptyTable": "Gösterilecek veri yok.",
+                    "processing": "Veriler yükleniyor",
+                    "sDecimal": ".",
+                    "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
+                    "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "Sayfada _MENU_ kayıt göster",
+                    "sLoadingRecords": "Yükleniyor...",
+                    "sSearch": "Ara:",
+                    "sZeroRecords": "Eşleşen kayıt bulunamadı",
+                    "oPaginate": {
+                        "sFirst": "İlk",
+                        "sLast": "Son",
+                        "sNext": "Sonraki",
+                        "sPrevious": "Önceki"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": artan sütun sıralamasını aktifleştir",
+                        "sSortDescending": ": azalan sütun sıralamasını aktifleştir"
+                    },
+                    "select": {
+                        "rows": {
+                            "_": "%d kayıt seçildi",
+                            "0": "",
+                            "1": "1 kayıt seçildi"
+                        }
+                    }
+                }
             });
 
             table.buttons().container()
-
                 .appendTo('#example_wrapper .col-md-6:eq(0)');
         });
-
     </script>
 
 </body>
