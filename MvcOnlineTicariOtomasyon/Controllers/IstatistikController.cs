@@ -69,5 +69,53 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             return View();
         }
+
+        public ActionResult KolayTablolar()
+        {
+            var query = from x in c.Carilers
+                        group x by x.CariSehir into g
+                        select new SinifGroup
+                        {
+                            Sehir = g.Key,
+                            Sayi = g.Count()
+                        };
+            return View(query.ToList());
+        }
+
+        public PartialViewResult Partial1()
+        {
+            var query = from x in c.Personels
+                        group x by x.Departman.DepartmanAd into g
+                        select new SinifGroup2
+                        {
+                            Departman = g.Key,
+                            Sayi = g.Count()
+                        };
+            return PartialView(query);
+        }
+
+        public PartialViewResult Partial2()
+        {
+            var query = c.Carilers.ToList();
+            return PartialView(query);
+        }
+
+        public PartialViewResult Partial3()
+        {
+            var query = c.Uruns.ToList();
+            return PartialView(query);
+        }
+
+        public PartialViewResult Partial4()
+        {
+            var query = from x in c.Uruns
+                        group x by x.Marka into g
+                        select new SinifGroup3
+                        {
+                            Marka = g.Key,
+                            Sayi = g.Count()
+                        };
+            return PartialView(query);
+        }
     }
 }
