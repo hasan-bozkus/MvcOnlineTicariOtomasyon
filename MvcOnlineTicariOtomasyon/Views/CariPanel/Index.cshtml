@@ -1,0 +1,42 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Cariler
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<h2>Mvc Online Ticari Otomasyon Cari Bilgi Paneli </h2>
+
+<br />
+
+@using (Html.BeginForm("Index2", "CariPanel", FormMethod.Post))
+{
+    <table class="table table-hover">
+        <tr>
+            <td>
+                <label>E-Posta Adresi: @HttpContext.Current.User.Identity.Name</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                 @Html.TextBoxFor(x=> x.CariAd, new { @Class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                 @Html.TextBoxFor(x=> x.CariSoyad, new { @Class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                 @Html.TextBoxFor(x=> x.CariSehir, new { @Class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                 @Html.TextBoxFor(x=> x.CariSifre, new { @Class = "form-control" })
+            </td>
+        </tr>
+    </table>
+    <button class="btn btn-warning">Bilgilerimi Güncelle</button>
+}
+
