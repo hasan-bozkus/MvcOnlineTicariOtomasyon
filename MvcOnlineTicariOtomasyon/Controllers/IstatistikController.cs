@@ -63,7 +63,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var bugunkuSatislar = c.SatisHarekets.Count(x => x.Tarih == DateTime.Today).ToString();
             ViewBag.bugunkuSatislar = bugunkuSatislar;
 
-            var bugunkuKasa = c.SatisHarekets.Where(x => x.Tarih == DateTime.Today).Sum(y => y.ToplamTutar).ToString();
+            var bugunkuKasa = c.SatisHarekets.Where(x => x.Tarih == DateTime.Today).Sum(y => (decimal?) y.ToplamTutar).ToString();
             ViewBag.bugunkuKasa = bugunkuKasa;
 
 
