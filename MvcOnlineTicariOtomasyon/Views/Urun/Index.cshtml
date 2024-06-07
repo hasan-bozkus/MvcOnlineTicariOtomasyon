@@ -1,10 +1,20 @@
-﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Urun>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcOnlineTicariOtomasyon.Models.Siniflar.Urun>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
     int count = 0;
 }
+<br />
 
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+{
+    <p>
+        Ürün Adı: @Html.TextBox("query")
+        <input type="submit" value="Ara"/>
+    </p>
+}
 
 <br />
 <div class="card-body">
@@ -13,14 +23,12 @@
         <table class="table table-bordered" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Ürün</th>
                     <th>Marka</th>
                     <th>Stok</th>
                     <th>Alış Fiyatı</th>
                     <th>Satış Fiyatuı</th>
                     <th>Kategori</th>
-                    <th>Görsel</th>
                     <th>Durum</th>
                     <th>Sil</th>
                     <th>Güncelle</th>
@@ -28,14 +36,12 @@
             </thead>
             <tfoot>
                 <tr>
-                    <th>ID</th>
                     <th>Ürün</th>
                     <th>Marka</th>
                     <th>Stok</th>
                     <th>Alış Fiyatı</th>
                     <th>Satış Fiyatuı</th>
                     <th>Kategori</th>
-                    <th>Görsel</th>
                     <th>Durum</th>
                     <th>Sil</th>
                     <th>Güncelle</th>
@@ -47,14 +53,12 @@
                     count++;
 
                     <tr>
-                        <td>@count</td>
                         <td>@item.UrunAd</td>
                         <td>@item.Marka</td>
                         <td>@item.Stok</td>
-                        <td>@item.AlisFiyat</td>
-                        <td>@item.SatisFiyat</td>
+                        <td>@item.AlisFiyat ₺</td>
+                        <td>@item.SatisFiyat ₺</td>
                         <td>@item.Kategori.KategoriAd</td>
-                        <td>@item.UrunGorsel</td>
                         <td>@item.Durum</td>
                         <td><a href="/Urun/UrunSil/@item.UrunID" class="btn btn-outline-danger">Sil</a></td>
                         <td><a href="/Urun/UrunGetir/@item.UrunID" class="btn btn-outline-success">Güncelle</a></td>
@@ -64,6 +68,17 @@
         </table>
 
         <a href="/Urun/UrunEkle/" class="btn btn-primary">Yeni Ürün Ekle</a>
+
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
+     new PagedListRenderOptions
+     {
+         LinkToFirstPageFormat = "<<İlk",
+         LinkToLastPageFormat = "Son>>",
+         LinkToNextPageFormat = "sonraki>",
+         LinkToPreviousPageFormat = "<önceki",
+         ContainerDivClasses = new[] { "navigation" },
+         LiElementClasses = new[] { "page-item page-link" }
+     })
     </div>
 </div>
 

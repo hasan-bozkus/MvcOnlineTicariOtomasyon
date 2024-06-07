@@ -13,19 +13,19 @@
     <div class="form-responsive">
         <form class="form-group" method="post">
             @Html.LabelFor(x => x.Aciklama)
-            @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", placeholder = "Seri No Girin" })
+            @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", placeholder = "Açıklama Girin" })
             <br />
             @Html.LabelFor(x => x.Miktar)
-            @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control", placeholder = "Sıra No Girin" })
+            @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control", placeholder = "Miktar Girin" })
             <br />
             @Html.LabelFor(x => x.BirimFiyat)
-            @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control", placeholder = "Vergi Dairesi Girin" })
+            @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control", placeholder = "Birim Fiyat Girin" })
             <br />
             @Html.LabelFor(x => x.Tutar)
-            @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control", placeholder = "Teslim Eden Girin" })
+            @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control", placeholder = "Tutar Girin" })
             <br />
-            @Html.LabelFor(x => x.Faturalar)
-            @Html.TextBoxFor(x => x.FaturaID, new { @class = "form-control", placeholder = "Teslim Alan Girin" })
+            @Html.LabelFor(x => x.Faturalar.FaturaID)
+            @Html.TextBoxFor(x => x.FaturaID, new { @class = "form-control", placeholder = "Fatura ID Girin" })
             <br />
             <button class="btn btn-info">Kaydet</button>
         </form>

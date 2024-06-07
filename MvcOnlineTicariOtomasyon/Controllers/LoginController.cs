@@ -40,7 +40,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult LoginCariLogin(Cariler cariler)
         {
-            var bilgiler = c.Carilers.FirstOrDefault(x=> x.CariMail == cariler.CariMail && x.CariSifre == cariler.CariSifre);
+            var bilgiler = c.Carilers.FirstOrDefault(x => x.CariMail == cariler.CariMail && x.CariSifre == cariler.CariSifre);
             if (bilgiler != null)
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.CariMail, false);
@@ -59,10 +59,17 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return PartialView();
         }
 
-        //[HttpPost]
-        //public ActionResult LoginPersonelLogin()
-        //{
-        //    return PartialView();
-        //}
+        [HttpPost]
+        public ActionResult AdminLogin(Admin admin)
+        {
+            var bilgiler = c.Admins.FirstOrDefault(x => x.KullaniciAd == admin.KullaniciAd && x.Sifre == admin.Sifre);
+            if(bilgiler != null)
+            {
+                FormsAuthentication.SetAuthCookie(bilgiler.KullaniciAd, false);
+                Session["KullaniciAd"] = bilgiler.KullaniciAd.ToString();
+                return RedirectToAction("KolayTablolar", "Istatistik");
+            }
+            return RedirectToAction("Index", "Login");
+        }
     }
 }

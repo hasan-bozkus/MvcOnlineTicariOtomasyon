@@ -21,15 +21,12 @@
         <table class="table table-hover" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Ad</th>
-                    <th>Soyad</th>
+                    <th>Personel</th>
                     <th>Görsel</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
-                    <th>ID</th>
                     <th>Ad</th>
                     <th>Soyad</th>
                     <th>Görsel</th>
@@ -41,10 +38,8 @@
                     count++;
 
                     <tr>
-                        <td>@count</td>
-                        <td>@item.PersonelAd</td>
-                        <td>@item.PersonelSoyad</td>
-                        <td>@item.PersonelGorsel</td>
+                        <td>@item.PersonelAd @item.PersonelSoyad</td>
+                        <td><img src="@item.PersonelGorsel" style="width:100px; height:100px;" /></td>
                         <td><a href="/Departman/DepartmanPersonelSatis/@item.PersonelID" class="btn btn-danger">Satışlar</a></td>
                     </tr>
                 }

@@ -95,25 +95,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //login form popup-->
 
 <!-- subscribe form popup-->
-<div class="pop-up"> 
-	<div id="small-dialog1" class="mfp-hide book-form">
 
-		<div class="login-form login-form-left"> 
-			<div class="agile-row">
-				<h3>Personel Giriş Formu</h3>
-				<div class="clear"></div>
-				<div class="login-agileits-top"> 	
-					<form action="#" method="post"> 
-						<input type="text" class="name" name="KullaniciAd" Placeholder="Kullanıcı Adınız" required=""/>
-						<input type="password" class="password" name="password" Placeholder="Sifre" required=""/>
-						<input type="submit" value="Giriş Yap"> 
-					</form> 	
-				</div>
-			</div>  
-		</div> 
-		
-	</div>  
-</div>
+	@Html.Action("LoginPersonelLogin", "Login")
+
 <!-- //subscribe form popup-->
 
 <!-- register form popup-->

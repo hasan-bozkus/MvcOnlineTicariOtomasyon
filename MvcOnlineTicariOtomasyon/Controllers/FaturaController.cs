@@ -73,7 +73,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
             c.FaturaKalems.Add(faturaKalem);
             c.SaveChanges();
-            return View();
+            return RedirectToAction("FaturaDetay", "Fatura");
         }
     }
 }

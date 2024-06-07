@@ -1,4 +1,6 @@
-﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Kategori>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MvcOnlineTicariOtomasyon.Models.Siniflar.Kategori>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -13,14 +15,14 @@
             @*<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">*@
             <table class="table table-bordered" width="100%" cellspacing="0">
                 <thead>
-                    <tr>    
-                        <th>ID</th>
+                    <tr>
                         <th>Kategori Adı</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>ID</th>
                         <th>Kategori Adı</th>
                         <th>Sil</th>
                         <th>Güncelle</th>
@@ -32,7 +34,6 @@
                         count++;
 
                         <tr>
-                            <td>@count</td>
                             <td>@item.KategoriAd</td>
                             <td><a href="/Kategori/KategoriSil/@item.KategoriID" class="btn btn-outline-danger">Sil</a></td>
                             <td><a href="/Kategori/KategoriGetir/@item.KategoriID" class="btn btn-outline-success">Güncelle</a></td>
@@ -42,5 +43,18 @@
             </table>
 
             <a href="/Kategori/KategoriEkle/" class="btn btn-primary">Yeni Kategori Ekle</a>
+            <br />
+            <br />
+
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
+                 new PagedListRenderOptions
+                 {
+                     LinkToFirstPageFormat = "<<İlk",
+                     LinkToLastPageFormat = "Son>>",
+                     LinkToNextPageFormat = "sonraki>",
+                     LinkToPreviousPageFormat = "<önceki",
+                     ContainerDivClasses = new[] { "navigation" },
+                     LiElementClasses = new[] { "page-item page-link" }
+                 })
         </div>
     </div>

@@ -12,32 +12,26 @@
         <table class="table table-bordered" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Seri No</th>
-                    <th>Sıra No</th>
-                    <th>Vergi Dairesi</th>
+                    <th>Seri Sıra No</th>
                     <th>Tarih</th>
                     <th>Saat</th>
-                    <th>Teslim Eden</th>
-                    <th>Teslim Alan</th>
                     <th>Toplam</th>
                     <th>Güncelle</th>
                     <th>Detaylar</th>
+                    <th>Popup Liste</th>
+                    <th>Yeni Kalem</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
-                    <th>ID</th>
-                    <th>Seri No</th>
-                    <th>Sıra No</th>
-                    <th>Vergi Dairesi</th>
+                    <th>Seri Sıra No</th>
                     <th>Tarih</th>
                     <th>Saat</th>
-                    <th>Teslim Eden</th>
-                    <th>Teslim Alan</th>
                     <th>Toplam</th>
                     <th>Güncelle</th>
                     <th>Detaylar</th>
+                    <th>Popup Liste</th>
+                    <th>Yeni Kalem</th>
                 </tr>
             </tfoot>
             <tbody>
@@ -46,17 +40,14 @@
                     count++;
 
                     <tr>
-                        <td>@count</td>
-                        <td>@item.FaturaSeriNo</td>
-                        <td>@item.FaturaSıraNo</td>
-                        <td>@item.VergiDairesi</td>
-                        <td>@(((DateTime)item.Tarih).ToString("dd-MMM-yyyy"))</td>
+                        <td>@item.FaturaSeriNo @item.FaturaSıraNo</td>
+                        <td>@(((DateTime)item.Tarih).ToString("dd-MM-yyyy"))</td>
                         <td>@item.Saat</td>
-                        <td>@item.TeslimEden</td>
-                        <td>@item.TeslimAlan</td>
-                        <td>@item.Toplam</td>
+                        <td>@item.Toplam ₺</td>
                         <td><a href="/Fatura/FaturaGetir/@item.FaturaID" class="btn btn-outline-warning">Güncelle</a></td>
                         <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-outline-info">Detayı Gör</a></td>
+                        <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-outline-success">Liste</a></td>
+                        <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-outline-danger">Kalem</a></td>
                     </tr>
                 }
             </tbody>
