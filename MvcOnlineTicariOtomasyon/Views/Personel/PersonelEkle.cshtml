@@ -9,21 +9,25 @@
 
 <div class="card-body">
     <div class="form-responsive">
-        <form class="form-group" method="post">
-            @Html.LabelFor(x => x.PersonelAd)
-            @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control", placeholder = "Personel Adını Girin" })
-            <br />
-            @Html.LabelFor(x => x.PersonelSoyad)
-            @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control", placeholder = "Personel Soyadını Girin" })
-            <br />
-            @Html.LabelFor(x => x.PersonelGorsel)
-            @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control", placeholder = "Personel Görseli Girin" })
-            <br />
-            @Html.LabelFor(x => x.Departman)
-            @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.departman, "Lütfen Departman Seçin", new { @class = "form-control", placeholder = "Lütfen Departman Girin" })
-            <br />
-            <button class="btn btn-info">Kaydet</button>
-        </form>
+        @using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <form class="form-group" method="post">
+                @Html.LabelFor(x => x.PersonelAd)
+                @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control", placeholder = "Personel Adını Girin" })
+                <br />
+                @Html.LabelFor(x => x.PersonelSoyad)
+                @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control", placeholder = "Personel Soyadını Girin" })
+                <br />
+                @Html.LabelFor(x => x.PersonelGorsel)
+                @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control", placeholder = "Personel Görseli Girin" })*@
+                <input type="file" name="PersonelGorsel" />
+                <br />
+                @Html.LabelFor(x => x.Departman)
+                @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.departman, "Lütfen Departman Seçin", new { @class = "form-control", placeholder = "Lütfen Departman Girin" })
+                <br />
+                <button class="btn btn-info">Kaydet</button>
+            </form>
+        }
     </div>
 </div>
 
