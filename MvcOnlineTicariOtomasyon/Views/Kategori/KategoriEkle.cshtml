@@ -6,14 +6,19 @@
 
 <br />
 <h2>Yeni Kategori Ekle</h2>
-
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <div class="card-body">
     <div class="form-responsive">
         <form class="form-group" method="post">
             @Html.LabelFor(x=>x.KategoriAd)
             @Html.TextBoxFor(x=> x.KategoriAd, new { @class="form-control", placeholder="Kategori Adını Girin"})
             <br />
-            <button class="btn btn-info">Kaydet</button>
+            <button class="btn btn-info" id="btnEkle">Kaydet</button>
+            <script>
+                $('#btnEkle').click(function () {
+                    alert("Kategori başarıyla eklendi.");
+                });
+            </script>
         </form>
     </div>
 </div>

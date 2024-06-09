@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<br />
+<br />
+<button class="btn btn-primary" id="btn1">Button1</button>
+<button class="btn btn-warning" id="btn2">Button2</button>
+<button class="btn btn-info" id="btn3">Button3</button>
+<button class="btn btn-danger" id="btn4">Button4</button>
+<button class="btn btn-defalut" style="background-color:lightcoral;" id="btn5">Button5</button>
+
+<script>
+    $('#btn1').click(function () {
+        swal("SelamünAleyküm");
+    });
+    $('#btn2').click(function () {
+        swal("SelamünAleyküm", "Ben Hasan BOZKUŞ");
+    });
+    $('#btn3').click(function () {
+        swal("SelamünAleyküm", "Ben Hasan BOZKUŞ", "success");
+    });
+    $('#btn4').click(function () {
+        swal("SelamünAleyküm").then((value) => {
+            swal(`Hasan BOZKUŞ: ${value}`);
+        });
+    });
+    $('#btn5').click(function () {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! Your imaginary file has been deleted!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            });
+    });
+</script>
+

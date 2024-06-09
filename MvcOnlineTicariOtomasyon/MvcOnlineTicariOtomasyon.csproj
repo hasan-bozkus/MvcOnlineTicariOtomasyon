@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CariController.cs" />
     <Compile Include="Controllers\CariPanelController.cs" />
+    <Compile Include="Controllers\AlertlerController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\GaleriController.cs" />
@@ -2180,6 +2181,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\Adsız.png.png" />
+    <Content Include="Image\_3d583d39-31bc-4d5a-be80-8f09607e029b.jpg.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -2929,10 +2932,11 @@
     <Content Include="Views\Login\LoginCariLogin.cshtml" />
     <Content Include="Views\Login\LoginPersonelLogin.cshtml" />
     <Content Include="Views\CariPanel\Siparislerim.cshtml" />
+    <Content Include="Views\Alertler\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Image\" />
+    <Folder Include="Views\Deneme\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
