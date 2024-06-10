@@ -32,6 +32,7 @@
                     <th>Durum</th>
                     <th>Sil</th>
                     <th>Güncelle</th>
+                    <th>Satış Yap</th>
                 </tr>
             </thead>
             <tfoot>
@@ -45,6 +46,7 @@
                     <th>Durum</th>
                     <th>Sil</th>
                     <th>Güncelle</th>
+                    <th>Satış Yap</th>
                 </tr>
             </tfoot>
             <tbody>
@@ -62,6 +64,7 @@
                         <td>@item.Durum</td>
                         <td><a href="/Urun/UrunSil/@item.UrunID" class="btn btn-outline-danger">Sil</a></td>
                         <td><a href="/Urun/UrunGetir/@item.UrunID" class="btn btn-outline-success">Güncelle</a></td>
+                        <td><a href="/Urun/SatisYap/@item.UrunID" class="btn btn-outline-Default" style="border-color:#0094ff; color:#0094ff">Satış Yap</a></td>
                     </tr>
                 }
             </tbody>
