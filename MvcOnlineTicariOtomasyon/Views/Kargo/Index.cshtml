@@ -1,0 +1,58 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.KargoDetay>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kargolar</h2>
+@using (Html.BeginForm("Index", "Kargo", FormMethod.Get))
+{
+    <p>
+        Kargo Takip No: @Html.TextBox("query")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+
+<div class="card-body">
+    <div class="table-responsive">
+        @*<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">*@
+        <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Takip Kodu</th>
+                    <th>Personel</th>
+                    <th>Alıcı</th>
+                    <th>Tarih</th>
+                    <th>Detay</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Takip Kodu</th>
+
+                    <th>Personel</th>
+                    <th>Alıcı</th>
+                    <th>Tarih</th>
+                    <th>Detay</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>@item.TakipKodu</td>
+                        <td>@item.Personel</td>
+                        <td>@item.Alici</td>
+                        <td>@item.Tarih.ToString("dd-MM-yyyy")</td>
+                        <td><a href="/Kargo/KargoDetay/@item.TakipKodu" class="btn btn-outline-success">Detaylar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a href="/Kargo/YeniKargo/" class="btn btn-primary">Yeni Kargo Girişi</a>
+    </div>
+</div>
