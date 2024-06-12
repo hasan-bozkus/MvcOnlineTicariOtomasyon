@@ -22,5 +22,6 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         public DbSet<Yapilacak> Yapilacaks { get; set; }
         public DbSet<KargoDetay> KargoDetays { get; set; }
         public DbSet<KargoTakip> kargoTakips { get; set; }
+        public DbSet<Mesajlar> Mesajlars { get; set; }
     }
 }

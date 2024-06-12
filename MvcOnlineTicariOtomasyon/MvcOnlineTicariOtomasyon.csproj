@@ -148,6 +148,7 @@
     <Compile Include="Controllers\KargoController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MesajController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\QRController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Models\Siniflar\Gider.cs" />
     <Compile Include="Models\Siniflar\KargoDetay.cs" />
     <Compile Include="Models\Siniflar\KargoTakip.cs" />
+    <Compile Include="Models\Siniflar\Mesajlar.cs" />
     <Compile Include="Models\Siniflar\Sinif1.cs" />
     <Compile Include="Models\Siniflar\Sinif2.cs" />
     <Compile Include="Models\Siniflar\SinifGroup.cs" />
@@ -2959,9 +2961,14 @@
     <Content Include="Views\Grafik\Index5.cshtml" />
     <Content Include="Views\Grafik\Index6.cshtml" />
     <Content Include="Views\Grafik\Index7.cshtml" />
+    <Content Include="Views\CariPanel\GelenMesajlar.cshtml" />
+    <Content Include="Views\CariPanel\GidenMesajlar.cshtml" />
+    <Content Include="Views\CariPanel\MesajDetay.cshtml" />
+    <Content Include="Views\CariPanel\YeniMesaj.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Mesaj\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
