@@ -16,8 +16,18 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var mail = (string)Session["CariMail"];
-            var degerler = c.Carilers.FirstOrDefault(x => x.CariMail == mail);
+            var degerler = c.Mesajlars.Where(x => x.Alici == mail).ToList();
             ViewBag.mail = mail;
+            var mailId = c.Carilers.Where(x => x.CariMail == mail).Select(y => y.CariId).FirstOrDefault();
+            ViewBag.mailId = mailId;
+            var toplamSatis = c.SatisHarekets.Where(x => x.CariID == mailId).Count();
+            ViewBag.toplamSatis = toplamSatis;
+            var toplamTutar = c.SatisHarekets.Where(x => x.CariID == mailId).Sum(y => y.ToplamTutar);
+            ViewBag.toplamTutar = toplamTutar;
+            var toplamUrunSayisi = c.SatisHarekets.Where(x => x.CariID == mailId).Sum(y => y.Adet);
+            ViewBag.toplamUrunSayisi = toplamUrunSayisi;
+            var adSoyad = c.Carilers.Where(x => x.CariMail == mail).Select(y => y.CariAd + " " + y.CariSoyad).FirstOrDefault();
+            ViewBag.adSoyad = adSoyad;
             return View(degerler);
         }
 
@@ -113,6 +123,32 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index", "Login");
+        }
+
+        [HttpGet]
+        public PartialViewResult SettingPartial()
+        {
+            var mail = (string)Session["CariMail"];
+            var id = c.Carilers.Where(x => x.CariMail == mail).Select(y => y.CariId).FirstOrDefault();
+            var cariBul = c.Carilers.Find(id);
+            return PartialView("SettingPartial", cariBul);
+        }
+
+        [HttpPost]
+        public ActionResult SettingPartial(Cariler cariler)
+        {
+            var cari = c.Carilers.Find(cariler.CariId);
+            cari.CariAd = cariler.CariAd;
+            cari.CariSoyad = cariler.CariSoyad;
+            cari.CariSifre = cariler.CariSifre;
+            c.SaveChanges();
+            return RedirectToAction("Index", "CariPanel");
+        }
+
+        public PartialViewResult DuyurularPartial()
+        {
+            var veriler = c.Mesajlars.Where(x => x.Gonderici == "admin").ToList();
+            return PartialView(veriler);
         }
     }
 }

@@ -2344,6 +2344,7 @@
     <Content Include="thumber\js\swiper.min.js" />
     <Content Include="thumber\js\typed.js" />
     <Content Include="thumber\photos.html" />
+    <Content Include="Views\Shared\TextFile1.txt" />
     <Content Include="web2\css\bootstrap.css" />
     <Content Include="web2\css\clndr.css" />
     <Content Include="web2\css\jqvmap.css" />
@@ -2967,6 +2968,8 @@
     <Content Include="Views\CariPanel\YeniMesaj.cshtml" />
     <Content Include="Views\CariPanel\KargoTakip.cshtml" />
     <Content Include="Views\CariPanel\CariKargoTakip.cshtml" />
+    <Content Include="Views\CariPanel\SettingPartial.cshtml" />
+    <Content Include="Views\CariPanel\DuyurularPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
