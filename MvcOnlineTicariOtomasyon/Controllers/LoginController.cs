@@ -8,6 +8,8 @@ using System.Web.Security;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         Context c = new Context();

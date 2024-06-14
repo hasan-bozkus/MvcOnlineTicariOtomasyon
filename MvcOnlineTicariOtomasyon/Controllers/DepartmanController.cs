@@ -12,6 +12,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         Context c = new Context();
 
         // GET: Departman
+
         public ActionResult Index()
         {
             var degerler = c.Departmans.Where(x=> x.Durum == true).ToList();
